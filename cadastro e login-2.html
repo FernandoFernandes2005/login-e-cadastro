@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro e Login Simples</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 300px;
+            margin: 0 auto;
+            padding: 50px;
+            background-color: #f4f4f4;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .container h2 {
+            text-align: center;
+        }
+        .container input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .container button:hover {
+            background-color: #45a049;
+        }
+        .hidden {
+            display: none;
+        }
+        .main-container {
+            display: none;
+            text-align: center;
+            padding: 50px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Tela de Cadastro -->
+<div class="container" id="signup">
+    <h2>Cadastro</h2>
+    <input type="text" id="signup-username" placeholder="Nome de usuário" required>
+    <input type="email" id="signup-email" placeholder="Email" required>
+    <input type="password" id="signup-password" placeholder="Senha" required>
+    <input type="password" id="signup-confirm-password" placeholder="Confirmar Senha" required>
+    <button onclick="goToLogin()">Cadastrar</button>
+    <p style="text-align:center; margin-top: 10px;">Já tem uma conta? <a href="#" onclick="showLogin()">Entrar</a></p>
+</div>
+
+<!-- Tela de Login -->
+<div class="container hidden" id="login">
+    <h2>Login</h2>
+    <input type="text" id="login-username" placeholder="Usuário" required>
+    <input type="password" id="login-password" placeholder="Senha" required>
+    <button onclick="goToMain()">Entrar</button>
+    <p style="text-align:center; margin-top: 10px;">Ainda não tem uma conta? <a href="#" onclick="showSignup()">Cadastrar</a></p>
+</div>
+
+<!-- Tela Principal -->
+<div class="main-container" id="main">
+    <h1>Bem-vindo à Tela Principal!</h1>
+    <p>Você está logado!</p>
+</div>
+
+<script>
+    // Função para mostrar a tela de cadastro
+    function showSignup() {
+        document.getElementById("login").classList.add("hidden");
+        document.getElementById("signup").classList.remove("hidden");
+    }
+
+    // Função para mostrar a tela de login
+    function showLogin() {
+        document.getElementById("signup").classList.add("hidden");
+        document.getElementById("login").classList.remove("hidden");
+    }
+
+    // Função para ir para a tela de login após cadastro
+    function goToLogin() {
+        showLogin(); // Exibe a tela de login
+    }
+
+    // Função para ir para a tela principal após login
+    function goToMain() {
+       window.location.href = "neyma-1.html";
+        
+    }
+</script>
+
+</body>
+</html>
